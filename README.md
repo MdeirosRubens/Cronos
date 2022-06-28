@@ -1,4 +1,4 @@
-# alura-tracker
+# cronos-tracker
 
 ## Project setup
 ```
