@@ -33,15 +33,15 @@ export default defineComponent({
     }
   },
   computed: {
-    listaEstaVazia () : boolean {
+    listaEstaVazia(): boolean {
       return this.tarefas.length === 0
     }
   },
   methods: {
-    salvarTarefa (tarefa: ITarefa) {
+    salvarTarefa(tarefa: ITarefa) {
       this.tarefas.push(tarefa)
     },
-    trocarTema (darkModeAtivo: boolean) {
+    trocarTema(darkModeAtivo: boolean) {
       this.darkModeAtivo = darkModeAtivo
     }
   }
@@ -54,17 +54,18 @@ export default defineComponent({
 }
 
 main {
+  --bg-bar: #EDF1F2;
   --bg-primario: #fff;
   --texto-primario: #000;
 }
 
 main.dark-mode {
-   --bg-primario: #2b2d42;
-  --texto-primario: #ddd;
+  --bg-bar: #333333;
+  --bg-primario: #121212;
+  --texto-primario: #000;
 }
 
 .conteudo {
   background: var(--bg-primario);
 }
-
 </style>

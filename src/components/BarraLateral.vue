@@ -39,7 +39,7 @@ export default defineComponent({
 
 <style scoped>
 header {
-    background: #0d3b66;
+    background: #222629;
     width: 100%;
     height: 100vh;
     padding: 1rem;
