@@ -4,13 +4,7 @@
       <BarraLateral @aoTemaAlterado="trocarTema" />
     </div>
     <div class="column is-three-quarter conteudo">
-      <FormularioTarefa @aoSalvarTarefa="salvarTarefa" />
-      <div class="lista">
-        <TarefaTask v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" />
-        <BoxTask v-if="listaEstaVazia">
-          Você não está muito produtivo hoje :(
-        </BoxTask>
-      </div>
+      <router-view></router-view>
     </div>
   </main>
 </template>
@@ -18,29 +12,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import BarraLateral from './components/BarraLateral.vue';
-import FormularioTarefa from './components/FormularioTarefa.vue';
-import TarefaTask from "./components/TarefaTask.vue";
-import ITarefa from "./interfaces/ITarefa"
-import BoxTask from './components/BoxTask.vue';
 
 export default defineComponent({
   name: "App",
-  components: { BarraLateral, FormularioTarefa, TarefaTask, BoxTask },
+  components: { BarraLateral },
   data() {
     return {
-      tarefas: [] as ITarefa[],
       darkModeAtivo: false
     }
   },
-  computed: {
-    listaEstaVazia(): boolean {
-      return this.tarefas.length === 0
-    }
-  },
   methods: {
-    salvarTarefa(tarefa: ITarefa) {
-      this.tarefas.push(tarefa)
-    },
     trocarTema(darkModeAtivo: boolean) {
       this.darkModeAtivo = darkModeAtivo
     }
@@ -62,7 +43,7 @@ main {
 main.dark-mode {
   --bg-bar: #333333;
   --bg-primario: #121212;
-  --texto-primario: #000;
+  --texto-primario: #fff;
 }
 
 .conteudo {
