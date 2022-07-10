@@ -19,8 +19,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
-import { ALTERA_PROJETO, ADICIONA_PROJETO, NOTIFICAR } from '@/store/tipo-mutacoes';
+import { ALTERA_PROJETO, ADICIONA_PROJETO } from '@/store/tipo-mutacoes';
 import { TipoNotificacao } from "@/interfaces/INotificacao";
+import useNotificador from '@/hooks/notificador'
 
 export default defineComponent({
     name: 'FormViews',
@@ -29,6 +30,7 @@ export default defineComponent({
             type: String
         }
     },
+    
     mounted() {
         if (this.id) {
             const projeto = this.store.state.projetos.find(proj => proj.id == this.id)
@@ -50,29 +52,20 @@ export default defineComponent({
             } else {
                 this.store.commit(ADICIONA_PROJETO, this.nomeDoProjeto)
             }
+
             this.nomeDoProjeto = "";
-            this.store.commit(NOTIFICAR, {
-                titulo: 'Novo projeto salvo',
-                texto: 'Prontinho, seu projeto já está disponível',
-                tipo: TipoNotificacao
-            })
+            this.notificar(TipoNotificacao.SUCESSO, 'Excelente!', 'O Projeto foi cadastrado com sucesso')
             this.$router.push('/projetos')
-        },
+        }
     },
     setup() {
         const store = useStore()
+        const { notificar } = useNotificador()
         return {
-            store
+            store,
+            notificar
         }
     }
 })
-
-//function ALTERA_PROJETO(ALTERA_PROJETO: any, arg1: { id: string; nome: string; }) {
-//throw new Error("Function not implemented.");
-//}
-
-//function ADICIONA_PROJETO(ADICIONA_PROJETO: any, nomeDoProjeto: string) {
-//throw new Error("Function not implemented.");
-//}
 </script>
 
