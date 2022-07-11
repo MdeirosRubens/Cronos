@@ -1,5 +1,5 @@
 <template>
-    <div class="box formulario">
+    <div class="box">
         <div class="columns">
             <div class="column is-5" role="form" aria-label="Formulário para criação de nova tarefa">
                 <input type="text" class="input" placeholder="Qual tarefa você deseja iniciar?" v-model="descricao">
@@ -23,8 +23,7 @@
 
 <script lang="ts">
 import { key } from "@/store";
-import { computed } from "@vue/reactivity";
-import { defineComponent } from "vue";
+import { computed,defineComponent } from "vue";
 import { useStore } from "vuex";
 import TemporizadorTask from "./TemporizadorTask.vue";
 
@@ -59,9 +58,12 @@ export default defineComponent({
 });
 </script>
 
-<style>
-.formulario {
-    color: var(--texto-primario);
-    background: var(--bg-bar);
+<style scoped>
+.button {
+  margin-left: 8px;
+}
+.box {
+  background-color: var(--bg-primario);
+  color: var(--texto-primario);
 }
 </style>

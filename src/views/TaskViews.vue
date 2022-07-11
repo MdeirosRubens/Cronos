@@ -1,10 +1,10 @@
 <template>
     <FormularioTarefa @aoSalvarTarefa="salvarTarefa" />
     <div class="lista">
-        <TarefaTask v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" />
         <BoxTask v-if="listaEstaVazia">
-            Você não está muito produtivo hoje :(
+            Você não está muito produtivo hoje <span class="has-text-weight-bold">:(</span>
         </BoxTask>
+        <TarefaTask v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa" />
     </div>
 </template>
 

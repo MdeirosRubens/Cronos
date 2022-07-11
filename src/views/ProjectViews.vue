@@ -12,7 +12,7 @@ export default defineComponent({
 }) 
 </script>
 
-<style>
+<style scoped>
 .projetos {
     padding: 1.25rem;
 }
