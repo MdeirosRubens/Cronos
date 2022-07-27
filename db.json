@@ -2,11 +2,54 @@
   "projetos": [
     {
       "id": 1,
-      "nome": "Cronos Tracker"
+      "nome": "Cronos 2.0"
     },
     {
       "nome": "Estudo de Vue.JS",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "nome": "Estudando padrões de arquitetura"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoEmSegundos": 120,
+      "descricao": "Configuração do ambiente",
+      "projeto": {
+        "id": 1,
+        "nome": "Cronos Tracker"
+      }
+    },
+    {
+      "duracaoEmSegundos": 3,
+      "descricao": "teste",
+      "projeto": {
+        "nome": "Estudo de Vue.JS",
+        "id": 3
+      },
+      "id": 2
+    },
+    {
+      "duracaoEmSegundos": 6,
+      "descricao": "",
       "id": 3
+    },
+    {
+      "duracaoEmSegundos": 10,
+      "descricao": "teste",
+      "projeto": {
+        "nome": "Projeto De quarta",
+        "id": 6
+      },
+      "id": 4
+    },
+    {
+      "duracaoEmSegundos": 8,
+      "descricao": "",
+      "id": 5
     }
   ]
 }

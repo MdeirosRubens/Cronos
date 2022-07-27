@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { key } from "@/store";
-import { computed,defineComponent } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 import TemporizadorTask from "./TemporizadorTask.vue";
 
@@ -33,26 +33,27 @@ export default defineComponent({
     components: {
         TemporizadorTask
     },
-    data() {
-        return {
-            descricao: '',
-            idProjeto: ''
-        }
-    },
-    methods: {
-        finalizarTarefa(tempoDecorrido: number): void {
-            this.$emit('aoSalvarTarefa', {
-                duracaoEmSegundos: tempoDecorrido,
-                descricao: this.descricao,
-                projeto: this.projetos.find(proj => proj.id == this.idProjeto)
-            })
-            this.descricao = '';
-        }
-    },
-    setup() {
+    setup(props, { emit }) {
         const store = useStore(key)
+        const descricao = ref("")
+        const idProjeto = ref("")
+
+        const projetos = computed(() => store.state.projeto.projetos)
+
+        const finalizarTarefa = (tempoDecorrido: number): void => {
+            emit('aoSalvarTarefa', {
+                duracaoEmSegundos: tempoDecorrido,
+                descricao: descricao.value,
+                projeto: projetos.value.find(proj => proj.id == idProjeto.value)
+            })
+            descricao.value = '';
+        }
+
         return {
-            projetos: computed(() => store.state.projetos)
+            descricao,
+            idProjeto,
+            projetos,
+            finalizarTarefa
         }
     }
 });
@@ -60,10 +61,11 @@ export default defineComponent({
 
 <style scoped>
 .button {
-  margin-left: 8px;
+    margin-left: 8px;
 }
+
 .box {
-  background-color: var(--bg-primario);
-  color: var(--texto-primario);
+    background-color: var(--bg-primario);
+    color: var(--texto-primario);
 }
 </style>
