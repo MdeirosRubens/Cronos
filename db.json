@@ -5,7 +5,12 @@
       "nome": "Cronos 2.0"
     },
     {
-      "nome": "Estudo de Vue.JS",
+      "duracaoEmSegundos": 3,
+      "descricao": "Desk",
+      "projeto": {
+        "nome": "Estudo de Vue.JS",
+        "id": 3
+      },
       "id": 2
     },
     {
