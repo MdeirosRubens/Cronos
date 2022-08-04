@@ -4,7 +4,6 @@
             <div class="column is-4">{{ tarefa.descricao || 'Tarefa sem descrição' }}</div>
             <div class="column is-3">
                 {{ tarefa.projeto?.nome || 'N/D' }}
-
             </div>
             <div class="column">
                 <cronometroTask :tempoEmSegundos="tarefa.duracaoEmSegundos" />
@@ -34,7 +33,7 @@ export default defineComponent({
         }
     },
     methods: {
-        tarefaClicada (): void {
+        tarefaClicada(): void {
             this.$emit('aoTarefaClicada', this.tarefa)
         }
     },

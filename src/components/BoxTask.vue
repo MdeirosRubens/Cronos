@@ -1,5 +1,5 @@
 <template>
-    <div class="box has-text-weght-bold">
+    <div class="table is-striped">
         <slot></slot>
     </div>
 </template>
