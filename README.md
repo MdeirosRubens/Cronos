@@ -1,24 +1,23 @@
-# cronos-tracker
+# Cronos Tracker
 
-## Project setup
+***Projeto para cronometrar tarefas***
+
+## Para Setup do Projeto execute:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Para Compilação e hot-reloads em desenvolvimento execute:
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Para Compilar arquivos para produção minificados execute:
 ```
 npm run build
 ```
 
-### Lints and fixes files
+###  para Rodar o DB local execute:
 ```
-npm run lint
+json-server --watch db.json
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
